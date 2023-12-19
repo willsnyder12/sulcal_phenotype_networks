@@ -5,3 +5,5 @@ The folder sulcal_measurement contains python code for extracting the 5 sulcal p
 using BrainVISA's python distribution.
 
 The folder spn_analysis contains R code for the network analysis using these measures, highlighting main figures and results.
+
+Prior to publication, a full singularity pipeline will be available that automatically outputs sulcal graph and skeleton files with the correct file names for this pipeline, as well as automatically extracting sulcal phenotypes thereafter, allowing a single line of code to take you from FreeSurfer outputs to a csv file of sulcal phenotypes and a csv file for the SPN matrix.
