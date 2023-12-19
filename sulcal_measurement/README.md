@@ -1,4 +1,4 @@
-The files sulcal_phenotype_wrapper.py and brainvisa_helper_functions.py comprise the sulcal phenotype extraction pipeline.
+The files `sulcal_phenotype_wrapper.py` and `brainvisa_helper_functions.py` comprise the sulcal phenotype extraction pipeline.
 The output of running sulcal_phenotype_wrapper.py is sulcal_phenotypes.csv, giving a value to each of the 5 sulcal phenotypes
 for all sulci measureable. The wrapper script is run within a directory containing the sulcal graph ({left/right}_sulcal_graph.arg and {left/right}_sulcal_graph.data files/directories) and sulcal skeleton ({left/right}_sulcal_skeleton.nii) outputs from BrainVISA. See
 brainvisa_helper_functions.py for how sulcal phenotypes are derived from these files.
