@@ -1,4 +1,4 @@
-# sulcal_phenotype_networks
+# Sulcal Phenotype Networks (SPNs)
 Code for "A bipolar taxonomy of adult human brain sulcal morphology related to timing of fetal sulcation and trans-sulcal gene expression gradients"
 
 The folder sulcal_measurement contains python code for extracting the 5 sulcal phenotypes (average depth, depth variability, longest branch length, branch span, and fractal dimension)
