@@ -7,7 +7,7 @@ Wrapper code is run by copying all SPN / sulcal phenotype processing files into 
 `singularity run -B ${SULCAL_GRAPH_DIRECTORY}:${SULCAL_GRAPH_DIRECTORY} /path/to/your/brainvisa/singularity/file/brainvisa-5.0.4.sif python sulcal_phenotype_wrapper.py`
 See https://brainvisa.info/web/download.html for info on how to download and install BrainVISA. Note that trimesh must be installed by entering into BrainVISA's bash distribution (e.g., `bv bash`) and using `pip install trimesh`
 
-Prior to publication, a full singularity pipeline will be available that automatically outputs sulcal graph and skeleton files with the correct file names for this pipeline, as well as automatically extracting sulcal phenotypes thereafter, allowing a single line of code to take you from FreeSurfer outputs to sulcal_phenotypes.csv.
+Prior to publication, a full singularity pipeline will be available that automatically outputs sulcal graph and skeleton files with the correct file names for this pipeline, as well as automatically extracting sulcal phenotypes thereafter, allowing a single line of code to take you from FreeSurfer outputs to a csv file of sulcal phenotypes and a csv file for the SPN matrix.
 
 Credit for the function for circumscribed circle area (smallestenclosingcircle.py) is https://www.nayuki.io/page/smallest-enclosing-circle
 Credit for the function for fractal fimension calculation (FractalDimension.py) is https://github.com/ChatzigeorgiouGroup/FractalDimension
