@@ -18,7 +18,7 @@
 ##See https://brainvisa.info/web/download.html for info on how to download and install BrainVISA
 
 #import helper functions to compute phenotypes, as well as BrainVISA's image handling libraries
-from brainvisa_helper_functions.py  import *
+from brainvisa_helper_functions  import *
 from soma import aims
 import pandas as pd
 
