@@ -14,7 +14,7 @@
 
 ##Wrapper code is run by copying all SPN / sulcal phenotype processing files into the subject's sulcal graph
 ##directory, then using a singularity command like
-##`singularity run -B ${SULCAL_GRAPH_DIRECTORY}:${SULCAL_GRAPH_DIRECTORY} /path/to/your/brainvisa/singularity/file/brainvisa-5.0.4.sif python SPN_preprocessing.py`
+##`singularity run -B ${SULCAL_GRAPH_DIRECTORY}:${SULCAL_GRAPH_DIRECTORY} /path/to/your/brainvisa/singularity/file/brainvisa-5.0.4.sif python sulcal_phenotype_wrapper.py`
 ##See https://brainvisa.info/web/download.html for info on how to download and install BrainVISA
 
 #import helper functions to compute phenotypes, as well as BrainVISA's image handling libraries
