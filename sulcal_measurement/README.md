@@ -10,4 +10,4 @@ See https://brainvisa.info/web/download.html for info on how to download and ins
 Prior to publication, a full singularity pipeline will be available that automatically outputs sulcal graph and skeleton files with the correct file names for this pipeline, as well as automatically extracting sulcal phenotypes thereafter, allowing a single line of code to take you from FreeSurfer outputs to sulcal_phenotypes.csv.
 
 Credit for the function for circumscribed circle area (smallestenclosingcircle.py) is https://www.nayuki.io/page/smallest-enclosing-circle
-Credit for the function for fractal fimension calculation (fractaldimension.py) is https://github.com/ChatzigeorgiouGroup/FractalDimension
+Credit for the function for fractal fimension calculation (FractalDimension.py) is https://github.com/ChatzigeorgiouGroup/FractalDimension
