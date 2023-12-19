@@ -1,4 +1,4 @@
-## SPN functions that require brainvisa's python distribution
+##Sulcal phenotype measurement functions that require brainvisa's python distribution
 ##Note that trimesh must be installed by entering into BrainVISA's bash distribution
 ##(e.g., `bv bash`) and using `pip install trimesh`
 
@@ -182,27 +182,10 @@ def compute_largest_cc_length(graph,sulcus_list):
             branch_lengths[x] = np.append(branch_lengths[x], new_lengths)
     return branch_lengths
 
-#this function is used to project hull junction points (sulcus exterior) from 3d into a 2d basis
+#Branch span is computed by projecting hull junction points (sulcus exterior) from 3d space into a 2d plane 
 #defined by the point in the center of mass of the longest sulcal branch and the direction tangent to the smoothed
-#hull of the cortex at that point
-def project_to_2d(hj_coords,smoothed_mesh):
-    overall_centroid = np.mean(hj_coords, axis = 0)
-    dists = distance.cdist([overall_centroid], smoothed_mesh.vertices)
-    closest_pts = np.argsort(dists[0])[:10]
-    smooth_norm_sample = smoothed_mesh.vertex_normals[closest_pts]
-    smooth_norm = np.mean(smooth_norm_sample, axis = 0)
-    ref_pt = smoothed_mesh.vertices[closest_pts[0]]
-    basis_1 = np.array([-1 * smooth_norm[1], smooth_norm[0], 0])
-    basis_1_norm = basis_1 / np.sqrt(np.sum(basis_1**2))
-    basis_2 = np.cross(basis_1,smooth_norm)
-    basis_2_norm = basis_2 / np.sqrt(np.sum(basis_2**2))
-    new_x = np.dot(hj_coords - ref_pt, basis_1 )
-    new_y = np.dot(hj_coords - ref_pt, basis_2 )     
-    two_d_point_cloud = np.transpose(np.vstack((new_x,new_y)))
-    return two_d_point_cloud
-
-#Branch span by transforming hull junction points into 2d space as described above,
-#and then subsequently finding the circumscribed area about these points and the convex hull area of these points
+#hull of the cortex at that point,
+#and then subsequently finding the circumscribed area about these projected points and the convex hull area of these points
 #to get a ratio of how "circular" the extent of the points are
 def compute_branch_span(hj_image,skel,sulcus_list):
     branch_span_values = {new_list: np.array([]) for new_list in range(len(sulcus_list))}
