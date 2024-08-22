@@ -1,5 +1,6 @@
 
-![preview (1)](https://github.com/user-attachments/assets/6b5bcab7-9900-4b89-8697-6282159a8b8f)
+![preview (2)](https://github.com/user-attachments/assets/ea391957-a23c-4180-af92-16cefa01403f)
+
 
 2D, minimilistic sulcal plotting script to generate sulcal plots as in Snyder et al. 2024 (https://www.cell.com/neuron/fulltext/S0896-6273(24)00568-3)
 
