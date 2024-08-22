@@ -1,0 +1,8 @@
+S.Pe.C.median,S.Pe.C.inf,S.Pe.C.inter,S.Pe.C.marginal,S.Pe.C.sup
+S.O.T.lat.med,S.O.T.lat.ant,S.O.T.lat.int,S.O.T.lat.post
+S.Po.C.sup,F.I.P.Po.C.inf
+S.T.s.ter.asc.ant,S.T.s.ter.asc.post
+S.T.i.ant,S.T.i.post
+S.F.inf,S.F.inf.ant
+S.Li.ant,S.Li.post
+S.Pa.int,S.s.P,S.Pa.t

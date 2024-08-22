@@ -1,0 +1,61 @@
+#!/bin/bash
+
+#Will Snyder, 2024.
+#Code for interfacing with BrainVISA Morphologist and for SPN computation is under a GNU General Public License (see LICENSE file)
+
+
+#prevent multithreading, so that you don't overallocate resources on systems with shared resources, i.e. CPUs on computing clusters
+export OMP_NUM_THREADS=1
+
+
+# Define usage function
+usage() {
+    echo "Usage: $0 -s SUBJECT_ID -d FS_DIR -o OUTPUT_DIR [-r RELABEL_FILE -a SULCI ANALYZED]"
+    echo "  -s    (S)ubject ID for a subject folder found within a FreeSurfer output directory (mandatory argument)" 
+    echo "  -d    FreeSurfer subject's (d)irectory, where you have each FreeSurfer ouput for each subject (mandatory argument)"
+    echo "  -o    (O)utput directory, where freesurfer data will be copied to and brainvisa / SPN database will be located (mandatory argument)"
+    echo "  -r    Path to the (r)elabeling scheme for sulci, specifying sulcal labels you want to merge together to analyze as larger sulcal segments. When not specified, sulcal parcellation follows from how described in Snyder et al., 2024, Neuron (optional, must be used with -a)"
+    echo "  -a    Path to the list of sulci for (a)nalysis, for if you change the sulcal parcellation. This is made mandatory when using -r as you will likely want to change the merging/sulcal parcellation if you want to expand or contract sulci analyzed (optional, must be used with -r)"
+    exit 1
+}
+
+# Check if no arguments were provided
+if [ $# -eq 0 ]; then
+    usage
+fi
+
+# Parse command line arguments
+while getopts "s:d:o:r:a:" opt; do
+    case $opt in
+        s) subject_id="$OPTARG" ;;
+        d) fs_dir="$OPTARG" ;;
+        o) output_dir="$OPTARG" ;;
+        r) relabel_file="$OPTARG" ;;
+        a) sulci_analyzed="$OPTARG" ;;
+        h) usage ;;
+        \?) echo "Invalid option -$OPTARG" >&2; exit 1 ;;
+    esac
+done
+
+# Check for mandatory argument 
+if [ -z "${subject_id}" ] || [ -z "${output_dir}" ] || [ -z "${fs_dir}" ]; then
+    usage
+fi
+
+if { [ -n "${relabel_file}" ] && [ -z "${sulci_analyzed}" ]; } || { [ -z "${relabel_file}" ] && [ -n "${sulci_analyzed}" ]; }; then
+    echo "Error: Both -r and -a must be used together." >&2
+    usage
+fi
+
+# Define the main processing logic here
+if [ -n "$subject_id" ] && [ -n "${output_dir}" ] && [ -n "${fs_dir}" ] && [ -z "${relabel_file}" ] && [ -z "${sulci_analyzed}" ]; then
+    # Process a single subject
+    echo "Processing single subject: $subject_id with output in $output_dir "
+        python /usr/local/spn_scripts/spn_pipeline.py $subject_id $fs_dir $output_dir
+elif [ -n "$subject_id" ] && [ -n "${output_dir}" ] && [ -n "${fs_dir}" ] && [ -n "${relabel_file}" ] && [ -n "${sulci_analyzed}" ]; then
+    # Process a single subject
+    echo "Processing single subject: $subject_id with output in $output_dir "
+        python /usr/local/spn_scripts/spn_pipeline.py $subject_id $fs_dir $output_dir $relabel_file $sulci_analyzed
+fi
+
+echo "Processing completed."
