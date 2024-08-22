@@ -12,6 +12,6 @@ scale_width set at 9000x approximately retains full size rendering, which I reco
 Bounds sets the color scale bounds for the data so that you can have control over an interpretable color scale given the range of values in your dataset / sulci_values
 
 You may need to install a few R packages to get this script to work, namely imagemagick / magick which does most of the heavy lifting in rendering / combining images.
-Also note that this function is parallelized and by default will take all available cores - 1, and runs locally for me on a Mac within ~30s to a minute. 
+Also note that this function is parallelized and by default will take all available cores - 1, and runs locally for me on a Mac within ~30s to a minute. If you want to make it not parrallel you may just be able to do this by hard-coding no_cores to = 1.
 
 combine_and_color_sulci_alternate_parallel does the same thing but uses a slightly different sulcal parcellation (see README.txt in sulci_images_alternate)
