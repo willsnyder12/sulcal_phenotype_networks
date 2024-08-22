@@ -33,18 +33,18 @@ find_closest_index <- function(value, vector2) {
   abs_diff <- abs(value - vector2)
   return(which.min(abs_diff))
 }
-combine_and_color_sulci <- function(sulci_values, color_palette, scale_width, bounds = NA, border_width = 0){
+combine_and_color_sulci_alternate <- function(sulci_values, color_palette, scale_width, bounds = NA, border_width = 0){
   
-  base_image_path <- "~/Downloads/sulcal_plotting/sulci_images/"
+  base_image_path <- "~/Downloads/sulcal_plotting/sulci_images_alternate/"
   new_names <- c("Lateral Fissure", "Anterior Cingulate Sulcus","Posterior Cingulate Sulcus", "Calcarine Fissure", "Collateral Fissure",
                  "Intra-Parietal Fissure", "Parieto-Occipital Fissure", "Occipital Sulcus", "Central Sulcus", "Inferior Frontal Sulcus", "Paracingulate Sulcus", "Intermediate Frontal Sulcus", "Superior Frontal Sulcus", "Occipital-Temporal Lateral Sulcus", "Orbitofrontal Sulcus", "Medial Parietal Sulcus", "Pre-Central Sulcus", "Post-Central Sulcus", "Inferior Temporal Sulcus", "Superior Temporal Sulcus"  )
   new_names_2 <- paste(rep(c("Left", "Right"), 20),rep(new_names, each = 2))
   new_names_2 <- new_names_2[-c(14)]
   new_names_2[40] <- "Right Parieto-Occipital Fissure"
   nomenclature <- new_names_2
-  all_bg <- image_read("~/Downloads/sulcal_plotting/sulci_images/all_brains.png")
-  sulci_files <- c(list.files("~/Downloads/sulcal_plotting/sulci_images", pattern = "^Left", full.names = TRUE),
-                   list.files("~/Downloads/sulcal_plotting/sulci_images", pattern = "^Right", full.names = TRUE))
+  all_bg <- image_read("~/Downloads/sulcal_plotting/sulci_images_alternate/all_brains.png")
+  sulci_files <- c(list.files("~/Downloads/sulcal_plotting/sulci_images_alternate", pattern = "^Left", full.names = TRUE),
+                   list.files("~/Downloads/sulcal_plotting/sulci_images_alternate", pattern = "^Right", full.names = TRUE))
   composite.img <- all_bg
   
   remapped_sulci_values <- round(scales::rescale(sulci_values, to = c(1,1000)))
@@ -97,10 +97,10 @@ combine_and_color_sulci <- function(sulci_values, color_palette, scale_width, bo
 
 
 
-combine_and_color_sulci_parallel <- function(sulci_values, color_palette, scale_width, bounds = NA, border_width = 0){
+combine_and_color_sulci_alternate_parallel <- function(sulci_values, color_palette, scale_width, bounds = NA, border_width = 0){
   
-  base_image_path <- "~/Downloads/sulcal_plotting/sulci_images/"
-  all_bg <- image_read("~/Downloads/sulcal_plotting/sulci_images/all_brains.png")
+  base_image_path <- "~/Downloads/sulcal_plotting/sulci_images_alternate/"
+  all_bg <- image_read("~/Downloads/sulcal_plotting/sulci_images_alternate/all_brains.png")
   new_names <- c("Lateral Fissure", "Anterior Cingulate Sulcus","Posterior Cingulate Sulcus", "Calcarine Fissure", "Collateral Fissure",
                  "Intra-Parietal Fissure", "Parieto-Occipital Fissure", "Occipital Sulcus", "Central Sulcus", "Inferior Frontal Sulcus", "Paracingulate Sulcus", "Intermediate Frontal Sulcus", "Superior Frontal Sulcus", "Occipital-Temporal Lateral Sulcus", "Orbitofrontal Sulcus", "Medial Parietal Sulcus", "Pre-Central Sulcus", "Post-Central Sulcus", "Inferior Temporal Sulcus", "Superior Temporal Sulcus"  )
   new_names_2 <- paste(rep(c("Left", "Right"), 20),rep(new_names, each = 2))
@@ -171,10 +171,10 @@ combine_and_color_sulci_parallel <- function(sulci_values, color_palette, scale_
 
 
 
-combine_and_color_sulci_parallel_bipolar <- function(sulci_values, color_palette, scale_width, bounds = NA, border_width = 0){
+combine_and_color_sulci_parallel_snyder_2024 <- function(sulci_values, color_palette, scale_width, bounds = NA, border_width = 0){
   
-  base_image_path <- "~/Downloads/sulcal_plotting/sulci_images_bipolar/"
-  all_bg <- image_read("~/Downloads/sulcal_plotting/sulci_images/all_brains.png")
+  base_image_path <- "~/Downloads/sulcal_plotting/sulci_images_snyder_2024/"
+  all_bg <- image_read("~/Downloads/sulcal_plotting/sulci_images_snyder_2024/all_brains.png")
   new_names <- c("Lateral Fissure", "Anterior Cingulate Sulcus","Posterior Cingulate Sulcus", "Calcarine Fissure", "Collateral Fissure",
                  "Intra-Parietal Fissure", "Parieto-Occipital Fissure", "Occipital Sulcus", "Central Sulcus", "Inferior Frontal Sulcus", "Paracingulate Sulcus", "Intermediate Frontal Sulcus", "Superior Frontal Sulcus", "Occipital-Temporal Lateral Sulcus", "Orbitofrontal Sulcus", "Medial Parietal Sulcus", "Pre-Central Sulcus", "Post-Central Sulcus", "Inferior Temporal Sulcus", "Superior Temporal Sulcus"  )
   new_names_2 <- paste(rep(c("Left", "Right"), 20),rep(new_names, each = 2))
