@@ -1,6 +1,7 @@
 # Sulcal Phenotype Networks (SPNs)
 Code for SPN analysis as described in "A bimolar taxonomy of adult human brain sulcal morphology related to timing of fetal sulcation and trans-sulcal gene expression gradients"
 Please find the containerized version of this pipeline at: 10.6084/m9.figshare.25874425
+
 This container takes as input a FreeSurfer subject directory and outputs BrainVISA sulcal morphometry + sulcal phenotypes + sulcal phenotype networks + sulcal complexity measurement (eigenfold index)
 
 The folder spn_scripts contains code used in the container for extracting the 5 sulcal phenotypes (average depth, depth variability, longest branch length, branch span, and fractal dimension)
