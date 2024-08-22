@@ -1,7 +1,8 @@
 # Sulcal Phenotype Networks (SPNs)
 Code for SPN analysis as described in "A bimodal taxonomy of adult human brain sulcal morphology related to timing of fetal sulcation and trans-sulcal gene expression gradients"
-Please find the containerized version of this pipeline at: 
+Please find the containerized version of this pipeline at the link below, which uses one command to take you from FreeSurfer outputs to SPN results (following container setup). 
 
+Container:
 dx.doi.org/10.6084/m9.figshare.25874425
 
 This container takes as input a FreeSurfer subject directory and outputs BrainVISA sulcal morphometry + sulcal phenotypes + sulcal phenotype networks + sulcal complexity measurement (eigenfold index)
