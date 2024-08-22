@@ -14,8 +14,9 @@ The folder visualization contains additional scripts to visualize results in R.
 
 If you run into any questions, feel free to email me @ will.snyder989@gmail.com !
 
+<img width="600" alt="Screenshot 2024-08-22 at 2 47 20 PM" src="https://github.com/user-attachments/assets/8eb73ce5-d1bf-495d-a3ae-ffb5248ab2ce">
 
-<img width="911" alt="Screenshot 2024-08-22 at 2 42 20 PM" src="https://github.com/user-attachments/assets/c2c58975-7904-4b48-a685-6fb5c37cf407">
+
 
 
 
